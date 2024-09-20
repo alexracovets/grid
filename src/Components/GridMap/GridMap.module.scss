@@ -1,0 +1,85 @@
+@import '../../global/variable.scss';
+
+.grid_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 2rem;
+    background-color: $color-green_opacity;
+    border-radius: 0.3rem;
+    box-shadow:
+        inset 0px 5px 10px 0px #77777754,
+        inset -5px 0px 10px 0px #77777754,
+        inset 0px -5px 10px 0px #77777754,
+        0px 5px 10px 0px #77777754,
+        5px 0 10px 0px #77777754;
+
+    .mask {
+        width: calc(98rem);
+        height: calc(74.5rem);
+        position: relative;
+        border-radius: 3px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .grids {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-flow: row wrap;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 0;
+            background-color: white;
+
+            .grid {
+                display: block;
+                font-size: 1rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                outline: 0.01rem solid black;
+                opacity: 0.5;
+                border-radius: 0.2rem;
+                box-shadow: inset 1px 0 2px 1px rgb(255 255 255); 
+                transform: scale(1, 1);
+
+                &.active {
+                    opacity: 1;
+                    box-shadow: inset 0px 0px 5px 0px rgb(255, 255, 255);
+                    transform: scale(1, 1.1);
+                }
+
+                &.transparent {
+                    background-color: transparent;
+                }
+
+                &.first {
+                    background-color: $color-green;
+                }
+
+                &.second {
+                    background-color: $color-yellow;
+                }
+
+                &.third {
+                    background-color: $color-pink;
+                }
+
+                &.fourd {
+                    background-color: $color-violet;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+@import '../../global/variable.scss';
+
+.footer {
+    width: 100%;
+    text-align: center;
+    height: 50px; 
+    font-size: 10px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: $font-Fira_Mono;
+
+    span {
+        // font-weight: bold;
+    }
+}
