@@ -1,27 +1,31 @@
-import { memo } from 'react';
+import { memo, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import s from '../GridMap.module.scss';
+import useStoreGrid from "../../../store/useStoreGrid";
 
+import s from '../GridMap.module.scss';
 const GridItem = memo(({ height, width, click, grid }) => {
+    const [isSelected, setIsSelected] = useState(false);
+    const [gridSection] = useState(grid.section === 0 ? s.first : grid.section === 1 ? s.second : grid.section === 2 ? s.third : grid.section === 3 ? s.fourd : s.transparent);
+    const setActiveGrids = useStoreGrid(state => state.setActiveGrids);
+
+    const clickHandler = () => {
+        click(grid);
+        setActiveGrids(grid);
+    }
+
+    useEffect(() => {
+        setIsSelected(grid.isSelected);
+    }, [grid])
+
     return (
         <li
             className={` 
-            ${grid.section === 0
-                    ? s.first
-                    : grid.section === 1
-                        ? s.second
-                        : grid.section === 2
-                            ? s.third
-                            : grid.section === 3
-                                ? s.fourd
-                                : s.transparent
-                } 
-            ${grid.isSelected ? `${s.grid} ${s.active}` : s.grid}`}
+            ${gridSection} 
+            ${isSelected ? `${s.grid} ${s.active}` : s.grid}`}
             style={{ height, width }}
-            onClick={() => click(grid)}
+            onClick={clickHandler}
         >
-            {/* {`${grid.x} ${grid.y}`} */}
         </li>
     );
 });

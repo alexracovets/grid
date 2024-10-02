@@ -1,5 +1,7 @@
 import { IoInformationCircleOutline } from "react-icons/io5";
 
+import Calculator from "../Calculator/Calculator";
+
 import s from './SideSection.module.scss';
 function SideSection() {
 
@@ -14,6 +16,7 @@ function SideSection() {
             <div className={s.info_section}>
                 <IoInformationCircleOutline />
             </div>
+            <Calculator />
         </aside>
     )
 }
