@@ -1,6 +1,28 @@
+@import '../../global/variable.scss';
+
 .calculator {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.name {
+    font-size: 4rem;
+    font-family: $font-Fira_Mono;
+    text-align: center;
+    font-family: $font-Noto_Serif;
+    font-weight: 600;
+}
+
+.price {
+    font-size: 4rem;
+    font-family: $font-Fira_Mono;
+    text-align: center;
+    font-family: $font-Noto_Serif;
+    font-weight: 600;
+}
+
+.grid_select {
+    font-size: 3rem;
 }
